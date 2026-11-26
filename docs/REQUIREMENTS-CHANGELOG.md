@@ -2,6 +2,20 @@
 
 按最近更新在前记录站主提出的需求、落地内容、验证结果和线上发布状态。同一轮修改可以记录多条需求。已经记录的需求发生调整时，新增一条记录说明变化，便于从 Git 提交回看当时的版本。
 
+## 2026-11-26 重做墙角小花开场画面与动效
+
+- **需求**。站主不满意第一版 Demo 的视觉效果，希望参考 GitHub 上的前端与网页设计 Skill，重新设计开场，并尝试加入动效或 3D。
+- **实现**。使用 ImageGen 生成写实的全屏蓝花场景，以 WebP 加入站点。桌面照片和光尘随鼠标产生不同幅度的偏移，进入首页时画面轻微推近后淡出。手机使用竖屏构图。采用 Vercel 的 Web Design Guidelines 和 Web Animation Design 检查对比度、键盘交互、动效节奏和减少动态效果。
+- **验证**。生产构建和代码检查通过。浏览器验证了鼠标视差、点花转场、直接浏览、键盘操作、减少动态效果和手机竖屏清晰度。
+- **线上状态**。独立 Demo 供预览，待确定是否采用。
+
+<details>
+<summary>画面素材提示词</summary>
+
+Photorealistic natural cinematic still, intended as a full-bleed widescreen 16:9 cover photograph for an elegant Chinese personal portfolio entrance. A single real, vivid cornflower-blue chicory blossom on a slim green stalk with just two leaves grows out of a narrow crack at an old plaster wall's meeting with the concrete floor. Blossom and its entire stem in focus, finely detailed blue petals and small textured centre, reasonably large and arresting, centred on the vertical line at 73% from left, bloom centred at about 47% from top, crack and root visible close to bottom-right at 86% down. Strong warm morning light cuts diagonally from upper right across the wall to lower middle with a soft realistic edge. The right-hand light has warm limewash, visible lime plaster texture, small imperfections, and delicate cast shadow from the stem. Left 55% of the frame remains mostly a calm shadowed expanse of textured desaturated olive-grey wall, dark enough for overlaid light Chinese text, free of objects and heavy cracks. Shot close with cinematic editorial composition, soft film grain like 35 mm Portra, tactile natural environment, warm ochre light against blue petals and forest-green shadow. Restrained, evocative, photographic, with optical depth. No lettering, no typography, no frame, no logo, no extra flowers, no people. Widescreen landscape composition.
+
+</details>
+
 ## 2026-11-26 墙角小花开场 Demo
 
 - **需求**。借用旧版「墙角开了一朵小花」的设计思想，为首页做一个更有风格的开场预览。

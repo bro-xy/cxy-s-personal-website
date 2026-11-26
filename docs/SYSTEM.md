@@ -36,4 +36,4 @@
 
 ### 墙角小花开场 Demo
 
-在 `demo/flower-opening` 分支访问 `/demo/flower` 可以体验开场。文案、插画与入场交互位于 `src/app/demo/flower/`。点花和「直接浏览」都会打开现有首页。浏览器启用减少动态效果时，点花直接打开首页。
+在 `demo/flower-opening` 分支访问 `/demo/flower` 可以体验开场。全屏画面采用 `public/images/demos/flower/blue-flower-wall.webp`，交互和布局位于 `src/app/demo/flower/`。桌面鼠标移动时，照片与前景光尘有轻微的 3D 视差。点花和「进入首页」会触发转场，「直接浏览」会立即进入现有首页。触屏使用适合竖屏的构图，键盘操作与减少动态效果模式直接进入首页。

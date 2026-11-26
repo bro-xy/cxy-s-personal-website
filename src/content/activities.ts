@@ -120,7 +120,7 @@ export const otherWorks: OtherWork[] = [
   },
   {
     id: "spike",
-    title: "SPIKE 课程",
+    title: "SPIKE 课程老师",
   },
   {
     id: "procurement",

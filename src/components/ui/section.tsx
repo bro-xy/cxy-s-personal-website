@@ -11,6 +11,7 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
 }
 
 interface SectionProps {
+  id?: string;
   eyebrow?: string;
   title?: string;
   description?: string;
@@ -19,6 +20,7 @@ interface SectionProps {
 }
 
 export function Section({
+  id,
   eyebrow,
   title,
   description,
@@ -26,7 +28,7 @@ export function Section({
   children,
 }: SectionProps) {
   return (
-    <section className={cn("relative border-t border-line py-12 md:py-20", className)}>
+    <section id={id} className={cn("relative border-t border-line py-12 md:py-20", className)}>
       <Container>
         {(eyebrow || title || description) && (
           <div className="mb-8 max-w-2xl md:mb-12">

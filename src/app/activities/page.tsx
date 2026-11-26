@@ -6,7 +6,7 @@ import { otherWorks, recentActivities } from "@/content";
 
 export const metadata: Metadata = {
   title: "兼职与副业",
-  description: "陈熙雅的兼职现场记录，以及 1688 店铺、家教、SPIKE 课程和采购助理经历。",
+  description: "陈熙雅的兼职现场记录，以及 1688 店铺、家教、SPIKE 课程老师和采购助理经历。",
 };
 
 const workIcons: Record<string, typeof Store> = {

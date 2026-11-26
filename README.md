@@ -35,11 +35,12 @@ src/
 │   ├── home/               # 首页组件 (Hero / 生活图集 / 快捷入口)
 │   ├── about/              # 关于页组件 (介绍 / 技能雷达图 / 荣誉 / 成长路径)
 │   ├── projects/           # 项目组件 (独立项目 / 企业项目 / 内容运营)
-│   ├── activities/         # 活动组件 (年份筛选 / 照片翻看)
+│   ├── activities/         # 活动组件 (年份筛选 / 照片轮播)
 │   ├── contact/            # 联系页组件 (vCard 下载)
 │   ├── ui/                 # 基础 UI 组件 (Badge / Button / Card / Reveal / Section)
 │   ├── navbar.tsx          # 导航栏
-│   └── footer.tsx          # 页脚
+│   ├── footer.tsx          # 页脚
+│   └── background.tsx      # 滚动网格背景
 ├── content/               # 内容数据层 (集中管理所有页面文案)
 │   ├── site.ts             # 站点信息 / 导航 / 联系方式 / Hero 文案
 │   ├── about.ts            # 个人介绍 / 技能 / 荣誉 / 成长路径

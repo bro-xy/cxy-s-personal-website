@@ -24,7 +24,8 @@ export default function ProjectsPage() {
 
       {/* 企业项目 */}
       <Section
-        eyebrow="企业项目经历"
+        id="project-testing"
+        eyebrow="项目测试"
         title="从需求到上线的全流程"
         description="在真实企业系统中承担项目助理与测试角色，盯进度、控节点、保质量。"
       >

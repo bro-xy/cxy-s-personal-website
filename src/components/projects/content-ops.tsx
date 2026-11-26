@@ -6,7 +6,8 @@ import { Section } from "@/components/ui/section";
 export function ContentOps() {
   return (
     <Section
-      eyebrow="内容运营作品集"
+      id="wechat-operations"
+      eyebrow="公众号运营"
       title="我做过的公众号内容"
       description="从自己的诗词分享号到校园和企业公众号，每个账号里我做的事都不太一样。"
     >

@@ -1,55 +1,23 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import type { Activity } from "@/content";
+import { ActivityPhotos } from "./activity-photos";
+import { Badge } from "@/components/ui/badge";
 
 export function ActivityCard({ activity }: { activity: Activity }) {
-  const { photos } = activity;
-  const [index, setIndex] = useState(0);
-
-  function changePhoto(direction: number) {
-    setIndex((current) => (current + direction + photos.length) % photos.length);
-  }
-
   return (
-    <article className="activity-entry">
-      {photos.length > 0 && (
-        <div className="activity-entry-photo">
-          <Image
-            key={photos[index]}
-            src={photos[index]}
-            alt={`${activity.name}现场照片 ${index + 1}`}
-            fill
-            sizes="(min-width: 900px) 405px, (min-width: 640px) 44vw, 94vw"
-            className="object-cover"
-          />
-          {photos.length > 1 && (
-            <div className="activity-photo-controls">
-              <button type="button" onClick={() => changePhoto(-1)} aria-label="上一张照片">
-                <ChevronLeft aria-hidden size={18} />
-              </button>
-              <span aria-live="polite">{index + 1} / {photos.length}</span>
-              <button type="button" onClick={() => changePhoto(1)} aria-label="下一张照片">
-                <ChevronRight aria-hidden size={18} />
-              </button>
-            </div>
-          )}
+    <article className="activity-entry flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-card">
+      <ActivityPhotos name={activity.name} photos={activity.photos} className="aspect-[16/10]" />
+      <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-wrap items-start justify-between gap-2">
+          <h3 className="font-display text-lg font-semibold tracking-tight">{activity.name}</h3>
+          <Badge className="shrink-0">{activity.role}</Badge>
         </div>
-      )}
-      <div className="activity-entry-copy">
-        <div className="activity-entry-meta">
-          <span className="editorial-date">{activity.period}</span>
-          <span className="activity-entry-role">{activity.role}</span>
-        </div>
-        <h3>{activity.name}</h3>
+        <p className="mt-1 font-mono text-xs text-muted">{activity.period}</p>
         {activity.points.length > 0 ? (
-          <ul>
+          <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted">
             {activity.points.map((point) => <li key={point}>{point}</li>)}
           </ul>
         ) : (
-          <p>{activity.summary}</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted">{activity.summary}</p>
         )}
       </div>
     </article>

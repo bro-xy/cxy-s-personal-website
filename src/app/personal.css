@@ -104,7 +104,7 @@
 .site-text-link:hover { text-decoration-color: currentColor; }
 
 :is(.site-nav-link, .site-menu-toggle, .site-action, .site-text-link, .home-hero-foot a,
-    .home-field-link, .activity-filters button, .activity-photo-controls button,
+    .home-field-link, .activity-filters button, .activity-photo-carousel button,
     .resume-option):focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 4px;
@@ -112,7 +112,7 @@
 
 .home-hero {
   padding-top: clamp(2.75rem, 6.5vw, 5.75rem);
-  background: radial-gradient(ellipse at 77% 29%, #efe5d2 0, transparent 53%);
+  background: radial-gradient(ellipse at 77% 29%, #efe5d280 0, transparent 53%);
 }
 
 .home-hero-grid {
@@ -240,12 +240,20 @@
   position: relative;
   padding: 1.25rem;
   border: 1px solid var(--color-line);
-  border-radius: .45rem;
+  border-radius: 1rem;
   background: var(--color-surface);
-  transition: background-color 180ms ease;
 }
 
-.home-field-link:hover { background: var(--color-surface-2); }
+.home-field-link {
+  min-height: 10.5rem;
+  padding: 1.6rem;
+  transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+.home-field-link:hover {
+  transform: translateY(-.25rem);
+  box-shadow: var(--shadow-card);
+}
 
 :is(.home-field-link, .side-work-item) > svg { color: var(--color-accent); }
 
@@ -265,8 +273,8 @@
 
 .home-field-link .field-arrow {
   position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
+  top: 1.6rem;
+  right: 1.6rem;
   color: var(--color-muted);
 }
 
@@ -366,78 +374,52 @@
   gap: 1rem;
 }
 
-.activity-entry {
-  overflow: hidden;
-  border: 1px solid var(--color-line);
-  border-radius: .5rem;
-  background: var(--color-surface);
-}
-
-.activity-entry-photo {
-  position: relative;
-  aspect-ratio: 2.15;
-  background: var(--color-surface-2);
-}
-
-.activity-photo-controls {
+.activity-photo-arrow, .activity-photo-toggle {
   position: absolute;
-  right: .6rem;
-  bottom: .6rem;
-  display: flex;
-  align-items: center;
-  padding: .1rem;
-  border-radius: .35rem;
-  background: var(--color-surface);
-  box-shadow: 0 2px 18px #12201933;
-}
-
-.activity-photo-controls button {
   display: grid;
   place-items: center;
   width: 2.5rem;
   height: 2.5rem;
-  border-radius: .25rem;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 2px 14px #12201933;
+  color: var(--color-foreground);
   cursor: pointer;
 }
 
-.activity-photo-controls button:hover { background: var(--color-surface-2); }
+.activity-photo-arrow { top: 50%; transform: translateY(-50%); }
+.activity-photo-toggle { right: .6rem; bottom: .6rem; width: 2.1rem; height: 2.1rem; }
+.activity-photo-carousel button:hover { background: var(--color-surface-2); }
+.activity-photo-carousel button:focus-visible { outline-offset: 2px; }
 
-.activity-photo-controls span {
-  width: 3.1rem;
-  text-align: center;
-  font: 600 .75rem var(--font-mono);
-}
-
-.activity-entry-copy { padding: 1.05rem 1.25rem 1.3rem; }
-
-.activity-entry-meta {
+.activity-photo-dots {
+  position: absolute;
+  bottom: .75rem;
+  left: 50%;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: .35rem .7rem;
-  color: var(--color-muted);
+  padding-inline: .25rem;
+  border-radius: 999px;
+  background: var(--color-surface);
+  transform: translateX(-50%);
 }
 
-.activity-entry-role {
-  padding: .15rem .5rem;
-  border-radius: .2rem;
-  background: #f4e5d9;
-  color: #833b27;
-  font-size: .75rem;
-  font-weight: 650;
+.activity-photo-dots button {
+  display: grid;
+  width: 1.5rem;
+  height: 1.55rem;
+  place-items: center;
+  border-radius: 999px;
+  cursor: pointer;
 }
 
-.activity-entry h3 { margin-top: .5rem; font-size: 1.2rem; font-weight: 700; }
-
-.activity-entry-copy :is(ul, p) {
-  margin-top: .5rem;
-  color: var(--color-muted);
-  font-size: .875rem;
-  line-height: 1.7;
+.activity-photo-dots span {
+  width: .4rem;
+  height: .4rem;
+  border-radius: 999px;
+  background: var(--color-muted);
 }
 
-.activity-entry-copy ul { padding-left: 1.15em; list-style: disc; }
-.activity-entry-copy li + li { margin-top: .25rem; }
+.activity-photo-dots button[aria-current="true"] span { width: .9rem; background: var(--color-foreground); }
 
 .side-work {
   padding-top: 1.5rem;

@@ -1,15 +1,27 @@
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, BookOpen, Boxes, Store } from "lucide-react";
+import { ArrowUpRight, BookOpen, ClipboardCheck, Code, GraduationCap, Megaphone, Store } from "lucide-react";
 import { otherWorks, recentActivities } from "@/content";
+import { ActivityPhotos } from "@/components/activities/activity-photos";
 import { Container } from "@/components/ui/container";
 
 const fieldLinks = [
   {
-    title: "项目、测试和运营",
-    description: "阙天的企业项目、独立开发的古诗词小程序，以及我做过的公众号内容。",
-    href: "/projects",
-    icon: Boxes,
+    title: "项目测试",
+    description: "IMS 销量报表和经销商管理平台的功能测试、用例设计与验收。",
+    href: "/projects#project-testing",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "公众号运营",
+    description: "诗行小筑，以及在校园、企业和青少年服务机构做过的内容。",
+    href: "/projects#wechat-operations",
+    icon: Megaphone,
+  },
+  {
+    title: "项目开发",
+    description: "从产品策划到正式上线，我做的古诗词练习微信小程序。",
+    href: "/projects#project-development",
+    icon: Code,
   },
   {
     title: "我的 1688 店铺",
@@ -18,10 +30,15 @@ const fieldLinks = [
     icon: Store,
   },
   {
-    title: "家教与 SPIKE 课",
-    description: "辅导中小学生计算机和数学，平时也会上 SPIKE 课。",
+    title: "家教辅导",
+    description: "辅导中小学生计算机和数学。",
     href: "/activities#tutoring",
     icon: BookOpen,
+  },
+  {
+    title: "SPIKE 课程老师",
+    href: "/activities#spike",
+    icon: GraduationCap,
   },
 ];
 
@@ -32,7 +49,7 @@ export function QuickLinks() {
     <section id="current-work" className="home-work" aria-labelledby="home-work-title">
       <Container>
         <div className="home-work-heading">
-          <h2 id="home-work-title">我在做的事</h2>
+          <h2 id="home-work-title">项目与经历</h2>
           <Link href="/about" className="site-text-link">
             更多关于我 <ArrowUpRight aria-hidden size={16} />
           </Link>
@@ -42,24 +59,14 @@ export function QuickLinks() {
             <Link href={href} key={href} className="home-field-link">
               <Icon aria-hidden size={23} strokeWidth={1.6} />
               <h3>{title}</h3>
-              <p>{description}</p>
+              {description && <p>{description}</p>}
               <ArrowUpRight className="field-arrow" aria-hidden size={18} />
             </Link>
           ))}
         </div>
         {latest && (
           <article className="home-latest">
-            {latest.photos[0] && (
-              <div className="home-latest-photo">
-                <Image
-                  src={latest.photos[0]}
-                  alt={latest.name + "现场"}
-                  fill
-                  sizes="(min-width: 768px) 48vw, 92vw"
-                  className="object-cover"
-                />
-              </div>
-            )}
+            <ActivityPhotos name={latest.name} photos={latest.photos} className="home-latest-photo" />
             <div className="home-latest-copy">
               <p className="editorial-eyebrow">最近的兼职现场</p>
               <p className="editorial-date">{latest.period} · {latest.role}</p>

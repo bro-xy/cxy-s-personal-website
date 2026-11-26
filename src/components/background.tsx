@@ -9,7 +9,7 @@ export default function Background() {
       <ShapeGrid
         direction="right"
         speed={0.6}
-        borderColor="rgba(29,29,31,0.06)"
+        borderColor="rgba(36,51,43,0.12)"
         squareSize={40}
         hoverFillColor="rgba(29,29,31,0.08)"
         shape="square"

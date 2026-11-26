@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Noto_Sans_SC, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Background from "@/components/background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
@@ -62,7 +63,8 @@ export default function RootLayout({
       lang="zh-CN"
       className={`${sora.variable} ${notoSansSC.variable} ${geistMono.variable}`}
     >
-      <body className="flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
+      <body className="isolate flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
+        <Background />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

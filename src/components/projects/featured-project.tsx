@@ -11,7 +11,8 @@ export function FeaturedProject() {
 
   return (
     <Section
-      eyebrow="独立开发作品"
+      id="project-development"
+      eyebrow="项目开发"
       title="从想法到上线"
     >
       <Reveal>

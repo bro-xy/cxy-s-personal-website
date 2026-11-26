@@ -73,12 +73,13 @@ export interface ContentAccount {
 export interface VideoWork {
   title: string;
   format: "微课" | "动画";
-  award: string;
+  awards: string[];
   role: string;
   overview?: string;
   video?: string;
   poster?: string;
   captions?: string;
+  watchUrl?: string;
 }
 
 export interface Activity {

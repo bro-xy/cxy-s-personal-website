@@ -14,7 +14,6 @@ export const nav: NavItem[] = [
   { label: "首页", href: "/" },
   { label: "关于我", href: "/about" },
   { label: "作品集", href: "/projects" },
-  { label: "博客", href: "/blog" },
   { label: "兼职与副业", href: "/activities" },
   { label: "联系我", href: "/contact" },
   { label: "下载简历", href: "/contact#resumes" },
@@ -29,7 +28,7 @@ export const contact: Contact = {
 export const hero = {
   greeting: "嗨，我是",
   subtitle:
-    "我在上海读软件工程，平时做项目、做测试，周末常在活动现场。我喜欢跟人打交道，也喜欢往山里走。这里放了我做过的作品，以后也会写写路上和日常的事。",
+    "我在上海读软件工程，平时做项目、做测试，周末常在活动现场。我喜欢跟人打交道，也喜欢往山里走。这里有我做过的作品，也有一些路上的照片。",
 };
 
 export const lifePhotos: string[] = [

@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { ArrowDown, ArrowUpRight, FileText, NotebookPen } from "lucide-react";
+import { ArrowDown, ArrowUpRight, FileText } from "lucide-react";
 import { hero, lifePhotos, site } from "@/content";
 import { Container } from "@/components/ui/container";
+import { FlowerIntro } from "./flower-intro";
 import Link from "next/link";
 
 export function Hero() {
@@ -10,16 +11,13 @@ export function Hero() {
       <Container className="home-hero-grid">
         <div className="home-hero-copy">
           <p className="home-profile"><span lang="en">{site.englishName}</span> <span>{site.personality}</span></p>
-          <h1>
+          <h1 id="home-heading" tabIndex={-1}>
             <span>{hero.greeting}</span><span className="home-name">{site.name}。</span>
           </h1>
           <p className="home-hero-description">{hero.subtitle}</p>
           <div className="home-hero-actions">
             <Link href="/projects" className="site-action site-action-primary">
               看作品集 <ArrowUpRight aria-hidden size={17} />
-            </Link>
-            <Link href="/blog" className="site-action site-action-secondary">
-              <NotebookPen aria-hidden size={16} /> 读博客
             </Link>
             <Link href="/contact#resumes" className="home-resume-link site-text-link">
               <FileText aria-hidden size={16} /> 选择简历
@@ -52,7 +50,10 @@ export function Hero() {
 
         <div className="home-hero-foot">
           <span>{site.location} · 软件工程在读</span>
-          <a href="#current-work">继续往下看 <ArrowDown aria-hidden size={15} /></a>
+          <div className="home-hero-links">
+            <FlowerIntro />
+            <a href="#current-work">继续往下看 <ArrowDown aria-hidden size={15} /></a>
+          </div>
         </div>
       </Container>
     </section>

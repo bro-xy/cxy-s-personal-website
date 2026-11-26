@@ -150,7 +150,7 @@
 .home-hero-copy .home-hero-description { animation-delay: .12s; }
 .home-hero-copy .home-hero-actions { animation-delay: .17s; }
 
-.home-hero h1, .activity-intro h1 {
+.home-hero-copy h1, .activity-intro h1 {
   font-family: var(--font-editorial);
   font-size: clamp(2.35rem, 4.65vw, 4.5rem);
   font-weight: 800;
@@ -159,14 +159,14 @@
   text-wrap: balance;
 }
 
-.home-hero h1 { font-size: clamp(2.3rem, 4.25vw, 3.9rem); }
+.home-hero-copy h1 { font-size: clamp(2.3rem, 4.25vw, 3.9rem); }
 
-.home-hero h1 span {
+.home-hero-copy h1 span {
   display: inline-block;
   white-space: nowrap;
 }
 
-.home-hero h1 .home-name {
+.home-hero-copy h1 .home-name {
   color: var(--color-accent);
 }
 
@@ -268,6 +268,25 @@
 }
 
 .home-hero-foot a { display: flex; align-items: center; gap: .45rem; }
+
+.home-hero-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: .35rem 1rem;
+}
+
+.home-replay {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 2rem;
+  cursor: pointer;
+}
+
+.home-replay:hover { color: var(--color-accent); }
+.home-replay:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
 
 .home-work { padding-block: clamp(2.6rem, 6vw, 4.4rem); }
 
@@ -538,7 +557,7 @@
   .home-hero-grid, .home-field-links, .activity-intro, .activity-list, .resume-options {
     grid-template-columns: 1fr;
   }
-  .home-hero h1 { font-size: clamp(2.05rem, 8.7vw, 3.65rem); }
+  .home-hero-copy h1 { font-size: clamp(2.05rem, 8.7vw, 3.65rem); }
   .home-hero-copy { padding-block: 0 2rem; }
   .home-photo-stack { max-width: 26rem; justify-self: center; }
   .home-photo-main { width: 96%; aspect-ratio: 1.28; }

@@ -1,0 +1,201 @@
+:global(body):has(.entry) > :is(:global(.site-header), :global(footer)) {
+  display: none;
+}
+
+.entry {
+  --ink: #26382c;
+  --blue: #31586f;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  padding: 0 clamp(1.4rem, 5vw, 5.2rem);
+  background:
+    radial-gradient(ellipse at 12% 1%, #fffaf0 2%, transparent 53%),
+    linear-gradient(112deg, #f6f0e2, #e9dfca);
+  color: var(--ink);
+}
+
+.top {
+  display: flex;
+  width: min(100%, 76rem);
+  justify-content: space-between;
+  align-items: center;
+  min-height: 5rem;
+  margin-inline: auto;
+  border-bottom: 1px solid #26382c26;
+  font-size: .875rem;
+}
+
+.top > span {
+  font-weight: 700;
+}
+
+.skip, .prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+}
+
+.skip {
+  padding-block: .65rem;
+  color: #505e51;
+}
+
+.skip:hover {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: .25em;
+}
+
+.skip:focus-visible, .scene:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 5px;
+}
+
+.composition {
+  display: grid;
+  width: min(100%, 76rem);
+  flex: 1;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(1.5rem, 7vw, 7rem);
+  margin-inline: auto;
+  padding-block: clamp(2rem, 6vh, 4rem);
+}
+
+.copy {
+  align-self: center;
+  padding-bottom: clamp(1rem, 6vh, 4.2rem);
+}
+
+.copy h1 {
+  font: 750 clamp(3rem, 7.1vw, 7.25rem)/1.15 var(--font-editorial);
+  letter-spacing: -.075em;
+}
+
+.copy h1 span {
+  display: block;
+  color: var(--blue);
+}
+
+.copy p {
+  margin-top: 1.5rem;
+  color: #53604f;
+  font: 600 clamp(1.08rem, 2vw, 1.45rem)/1.5 var(--font-editorial);
+}
+
+.scene {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  isolation: isolate;
+  width: 100%;
+  max-width: 34rem;
+  aspect-ratio: 7 / 8;
+  justify-self: end;
+  border: 1px solid #7575605e;
+  border-radius: .3rem;
+  background:
+    linear-gradient(146deg, #fff9e66b 0%, transparent 60%),
+    repeating-linear-gradient(0deg, #79766129 0 1px, transparent 1px 4.4rem),
+    repeating-linear-gradient(90deg, #79766121 0 1px, transparent 1px 7.7rem),
+    radial-gradient(ellipse at 70% 38%, #ded6bc, #cfc9ad 78%);
+  box-shadow: 0 19px 44px -27px #4f483bb0;
+}
+
+.scene::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(140deg, transparent 21%, #faf4dcb5 22% 54%, transparent 55%);
+  content: "";
+}
+
+.drawing {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.plant {
+  transform-origin: 327px 557px;
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.loosePetals { opacity: 0; }
+
+.prompt {
+  position: absolute;
+  right: 1rem;
+  bottom: .9rem;
+  min-height: 2.55rem;
+  padding-inline: .8rem;
+  border: 1px solid #666d5670;
+  border-radius: .25rem;
+  background: #faf3e2;
+  color: var(--ink);
+  font-size: .85rem;
+  font-weight: 600;
+  transition: background-color 180ms ease;
+}
+
+.scene:hover .prompt {
+  background: #fffaf0;
+}
+
+.entry[data-opening="true"] {
+  animation: wash-out .7s ease .14s both;
+}
+
+.entry[data-opening="true"] .plant {
+  animation: lean .68s cubic-bezier(.19, 1, .22, 1) both;
+}
+
+.entry[data-opening="true"] .loosePetals {
+  animation: drift .74s cubic-bezier(.2, .65, .35, 1) both;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(2.4deg); }
+}
+
+@keyframes lean {
+  from { transform: rotate(0); }
+  to { transform: rotate(12deg); }
+}
+
+@keyframes drift {
+  0% { opacity: 0; transform: translate(0, 0); }
+  16% { opacity: .9; }
+  100% { opacity: 0; transform: translate(135px, -96px); }
+}
+
+@keyframes wash-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (max-width: 760px) {
+  .top { min-height: 3.9rem; }
+
+  .composition {
+    max-width: 29rem;
+    flex: none;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    padding-block: 1.9rem 1.5rem;
+  }
+
+  .copy { padding-bottom: 0; }
+  .copy h1 { font-size: clamp(2.55rem, 10.75vw, 4.2rem); }
+  .copy p { margin-top: .7rem; }
+  .scene { justify-self: stretch; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plant { animation: none; }
+}

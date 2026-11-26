@@ -70,6 +70,17 @@ export interface ContentAccount {
   image?: string;
 }
 
+export interface VideoWork {
+  title: string;
+  format: "微课" | "动画";
+  award: string;
+  role: string;
+  overview?: string;
+  video?: string;
+  poster?: string;
+  captions?: string;
+}
+
 export interface Activity {
   slug: string;
   name: string;

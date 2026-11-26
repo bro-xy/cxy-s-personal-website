@@ -2,7 +2,8 @@ import type { Contact, NavItem } from "./types";
 
 export const site = {
   name: "陈熙雅",
-  englishName: "Chen Xiya",
+  englishName: "lvy",
+  personality: "ENFJ",
   title: "项目管理 / 测试 / 运营",
   slogan: "项目、测试、内容运营、活动和我的 1688 店铺。",
   status: "周中实习 · 周末多场景实践中",
@@ -12,7 +13,8 @@ export const site = {
 export const nav: NavItem[] = [
   { label: "首页", href: "/" },
   { label: "关于我", href: "/about" },
-  { label: "项目与作品", href: "/projects" },
+  { label: "作品集", href: "/projects" },
+  { label: "博客", href: "/blog" },
   { label: "兼职与副业", href: "/activities" },
   { label: "联系我", href: "/contact" },
   { label: "下载简历", href: "/contact#resumes" },
@@ -27,7 +29,7 @@ export const contact: Contact = {
 export const hero = {
   greeting: "嗨，我是",
   subtitle:
-    "我在上海读软件工程，周中跟项目、做测试，周末常在活动现场。平时也做家教，打理自己的 1688 店铺。",
+    "我在上海读软件工程，平时做项目、做测试，周末常在活动现场。我喜欢跟人打交道，也喜欢往山里走。这里放了我做过的作品，以后也会写写路上和日常的事。",
 };
 
 export const lifePhotos: string[] = [

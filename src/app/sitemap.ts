@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { blogPosts } from "@/content/blog";
 
 const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://your-domain.com";
 
@@ -9,5 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/projects`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/activities`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${base}/contact`, changeFrequency: "yearly", priority: 0.5 },
+    ...(blogPosts.length ? [
+      { url: `${base}/blog` },
+      ...blogPosts.map((post) => ({ url: `${base}/blog/${post.slug}` })),
+    ] : []),
   ];
 }

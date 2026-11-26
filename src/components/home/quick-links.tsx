@@ -3,6 +3,7 @@ import { ArrowUpRight, BookOpen, ClipboardCheck, Code, GraduationCap, Megaphone,
 import { otherWorks, recentActivities } from "@/content";
 import { ActivityPhotos } from "@/components/activities/activity-photos";
 import { Container } from "@/components/ui/container";
+import { Reveal } from "@/components/ui/reveal";
 
 const fieldLinks = [
   {
@@ -55,13 +56,15 @@ export function QuickLinks() {
           </Link>
         </div>
         <div className="home-field-links">
-          {fieldLinks.map(({ title, description, href, icon: Icon }) => (
-            <Link href={href} key={href} className="home-field-link">
-              <Icon aria-hidden size={23} strokeWidth={1.6} />
-              <h3>{title}</h3>
-              {description && <p>{description}</p>}
-              <ArrowUpRight className="field-arrow" aria-hidden size={18} />
-            </Link>
+          {fieldLinks.map(({ title, description, href, icon: Icon }, index) => (
+            <Reveal key={href} y={17} delay={(index % 3) * .06}>
+              <Link href={href} className="home-field-link">
+                <Icon aria-hidden size={23} strokeWidth={1.6} />
+                <h3>{title}</h3>
+                {description && <p>{description}</p>}
+                <ArrowUpRight className="field-arrow" aria-hidden size={18} />
+              </Link>
+            </Reveal>
           ))}
         </div>
         {latest && (

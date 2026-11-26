@@ -1,4 +1,19 @@
-import type { ContentAccount, Project } from "./types";
+import type { ContentAccount, Project, VideoWork } from "./types";
+
+export const videoWorks: VideoWork[] = [
+  {
+    title: "微课视频",
+    format: "微课",
+    award: "计算机设计大赛 · 全国三等奖",
+    role: "微课视频制作",
+  },
+  {
+    title: "动画视频",
+    format: "动画",
+    award: "计算机设计大赛 · 全国三等奖",
+    role: "动画视频制作",
+  },
+];
 
 export const enterpriseProjects: Project[] = [
   {

@@ -5,22 +5,25 @@ import { Section } from "@/components/ui/section";
 import { ProjectCard } from "@/components/projects/project-card";
 import { FeaturedProject } from "@/components/projects/featured-project";
 import { ContentOps } from "@/components/projects/content-ops";
+import { VideoWorks } from "@/components/projects/video-works";
 import { enterpriseProjects } from "@/content";
 
 export const metadata: Metadata = {
-  title: "项目与作品",
+  title: "作品集",
   description:
-    "企业项目（IMS 销量报表系统、经销商管理平台）、独立开发（古诗词练习微信小程序）与 5 个公众号的内容运营作品集。",
+    "陈熙雅的作品集，收录计算机设计大赛获奖视频、企业项目、独立开发小程序和公众号作品。",
 };
 
 export default function ProjectsPage() {
   return (
     <>
       <PageHeader
-        eyebrow="项目与作品"
-        title="每一个项目，都有结果"
-        description="覆盖企业项目、产品开发、内容运营三类成果，用真实交付证明能力。"
+        eyebrow="作品集"
+        title="我做过的一些作品"
+        description="从微课和动画，到软件项目、小程序和公众号。"
       />
+
+      <VideoWorks />
 
       {/* 企业项目 */}
       <Section

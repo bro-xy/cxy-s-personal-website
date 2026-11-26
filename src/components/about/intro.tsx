@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { basicInfo, intro, portrait, selfEvaluation, type TextSegment } from "@/content";
+import { basicInfo, intro, portrait, selfEvaluation, site, type TextSegment } from "@/content";
 import { Reveal } from "@/components/ui/reveal";
 
 function renderSegment(seg: TextSegment, i: number) {
@@ -61,11 +61,11 @@ export function Intro() {
       <div>
         <Reveal>
           <div>
-            <h1 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
-              陈熙雅
-            </h1>
+            <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl">
+              {site.name}
+            </h2>
             <p className="mt-2 font-mono text-sm tracking-[0.2em] text-dim">
-              CHEN XIYA
+              {site.englishName} · {site.personality}
             </p>
             <div className="mt-6 space-y-5 leading-relaxed text-muted">
               {intro.map((paragraph, pi) => (

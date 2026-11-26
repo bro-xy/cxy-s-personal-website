@@ -1,7 +1,10 @@
 import type { Education, Honor, Role, SkillGroup, TextSegment } from "./types";
+import { site } from "./site";
 
 export const basicInfo: { label: string; value: string }[] = [
   { label: "姓名", value: "陈熙雅" },
+  { label: "英文名", value: site.englishName },
+  { label: "MBTI", value: site.personality },
   { label: "出生年月", value: "2004 年 3 月" },
   { label: "籍贯", value: "浙江义乌" },
   { label: "学历", value: "本科在读" },
@@ -17,6 +20,9 @@ export const intro: TextSegment[][] = [
     { text: "，" },
     { text: "上海第二工业大学软件工程专业", bold: true },
     { text: "本科生。我做过企业项目和测试，也做内容、跑活动现场，还经营自己的店铺。" },
+  ],
+  [
+    { text: "我性格外向，做事爽快，平时也挺随性。喜欢自由，也喜欢大自然，有空就想出去走走。" },
   ],
   [
     { text: "专业上我聚焦" },

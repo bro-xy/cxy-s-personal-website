@@ -15,7 +15,7 @@ export function Navbar() {
   function links() {
     return nav.map((item) => {
       const isResume = item.href === "/contact#resumes";
-      const active = item.href === pathname;
+      const active = item.href === pathname || (item.href === "/blog" && pathname.startsWith("/blog/"));
       return (
         <Link
           aria-current={active ? "page" : undefined}

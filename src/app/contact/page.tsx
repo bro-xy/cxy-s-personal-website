@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Download, Mail, MapPin, Phone, QrCode, Smartphone, UserPlus } from "lucide-react";
+import { Download, FileText, Mail, MapPin, Phone, QrCode, Smartphone, UserPlus } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { Container } from "@/components/ui/container";
 import { Reveal } from "@/components/ui/reveal";
 import { SaveContactButton } from "@/components/contact/save-contact";
-import { contact, resumePath } from "@/content";
+import { contact, resumes } from "@/content";
 
 export const metadata: Metadata = {
   title: "联系我",
@@ -35,13 +35,6 @@ const methods = [
 
 const quickLinks = [
   {
-    icon: Download,
-    label: "PDF 简历",
-    hint: "点击下载",
-    href: resumePath,
-    download: true,
-  },
-  {
     icon: Smartphone,
     label: "古诗词练习小程序",
     hint: "微信搜索体验",
@@ -59,11 +52,32 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="联系我"
-        title="期待与你合作"
-        description="如果你正在寻找一位懂技术、善协调、能扛事的应届生伙伴，欢迎随时联系。周中实习 · 周末多场景实践，随时在线。"
+        title="有机会，欢迎来聊。"
+        description="如果你想聊工作、项目合作，或刚好对我做过的事感兴趣，欢迎给我发消息。"
       />
 
       <Container className="pb-20">
+        <section id="resumes" className="resume-section" aria-labelledby="resume-title">
+          <h2 id="resume-title">选择一份简历</h2>
+          <div className="resume-options">
+            {resumes.map((resume) => (
+              <a
+                key={resume.href}
+                href={resume.href}
+                download={resume.filename}
+                className="resume-option"
+              >
+                <FileText aria-hidden size={25} strokeWidth={1.6} />
+                <div>
+                  <h3>{resume.title}</h3>
+                  <p>{resume.description}</p>
+                </div>
+                <Download aria-hidden size={20} />
+              </a>
+            ))}
+          </div>
+        </section>
+
         <div className="grid gap-6 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
             {methods.map((m) => {
@@ -151,7 +165,7 @@ export default function ContactPage() {
                   <h3 className="font-display text-base font-semibold">
                     快速入口
                   </h3>
-                  <div className="mt-4 grid gap-2 sm:grid-cols-3">
+                  <div className="mt-4 grid gap-2 sm:grid-cols-2">
                     {quickLinks.map((e) => {
                       const Icon = e.icon;
                       const content = (
@@ -173,7 +187,6 @@ export default function ContactPage() {
                         <a
                           key={e.label}
                           href={e.href}
-                          download={e.download}
                           className="flex items-center justify-between rounded-xl border border-line bg-surface/60 p-3.5 transition-colors hover:border-foreground/20 hover:bg-surface"
                         >
                           {content}

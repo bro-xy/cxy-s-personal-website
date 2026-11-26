@@ -104,10 +104,10 @@ npm run lint
 
 | 文件 | 控制内容 |
 |------|----------|
-| `site.ts` | 站点名称、导航菜单、联系方式、首页 Hero 文案、生活照 |
+| `site.ts` | 站点名称、导航菜单、联系方式、首页文案、生活照、简历下载选项 |
 | `about.ts` | 个人介绍（支持富文本加粗/加大）、技能雷达图数据、荣誉列表、成长路径 |
 | `projects.ts` | 企业项目、独立开发小程序、公众号运营列表 |
-| `activities.ts` | 兼职活动（含照片轮播）、其他兼职经历 |
+| `activities.ts` | 兼职记录、活动照片、其他副业经历 |
 
 ### 添加新活动
 
@@ -119,19 +119,20 @@ npm run lint
   name: "活动名称",
   role: "督导",
   period: "2026.08",
+  sortDate: "2026-08-16",
   summary: "一句话概述",
   points: ["要点一", "要点二"],
   photos: ["/images/activities/event-slug/01.jpg"],
 }
 ```
 
-照片放在 `public/images/activities/<slug>/` 目录下，命名 `01.jpg`、`02.jpg`...
+照片放在 `public/images/activities/<slug>/`，也可以用空数组提交一条文字记录。页面会自动按日期倒序排列并更新年份筛选，首页会展示最新一条。`sortDate` 可选。只知道年份或月份时，填写 `period` 即可。同月有多场活动时，可以用 `sortDate` 指定具体日期。
 
 ## 设计系统
 
-采用 Apple 风格的黑白灰单色调设计系统，通过 CSS 变量（设计令牌）统一管理：
+页面以暖纸色为底，用深绿和陶土色做强调。首页用旅行照做相册式构图。配色在 `globals.css`，首页、兼职页和简历区样式在 `personal.css`。
 
-- **颜色**：`--color-foreground`（近黑）、`--color-muted`（灰）、`--color-dim`（浅灰）、`--color-surface`（卡片白）
+- **颜色**：`--color-primary`（深绿）、`--color-accent`（陶土色）、`--color-background`（暖纸色）
 - **字体**：Sora（标题）、Noto Sans SC（正文）、Geist Mono（等宽 / 标签）
 - **动效**：Framer Motion 滚动渐入 + `prefers-reduced-motion` 降级
 - **响应式**：移动优先，断点 `sm:640px` → `md:768px` → `lg:1024px`

@@ -1,18 +1,10 @@
 import { cn } from "@/lib/utils";
 import { Container } from "./container";
 
-/** 章节小标签：编号 + 短线 + mono 文本 */
-export function SectionLabel({
-  index,
-  children,
-}: {
-  index?: string;
-  children: React.ReactNode;
-}) {
+export function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-muted">
-      {index && <span className="text-dim">{index}</span>}
-      <span className="h-px w-8 bg-line" />
+    <div className="flex items-center gap-2 text-xs font-semibold text-accent">
+      <span className="h-px w-5 bg-accent" />
       <span>{children}</span>
     </div>
   );
@@ -20,7 +12,6 @@ export function SectionLabel({
 
 interface SectionProps {
   eyebrow?: string;
-  index?: string;
   title?: string;
   description?: string;
   className?: string;
@@ -29,20 +20,19 @@ interface SectionProps {
 
 export function Section({
   eyebrow,
-  index,
   title,
   description,
   className,
   children,
 }: SectionProps) {
   return (
-    <section className={cn("relative py-24 md:py-36", className)}>
+    <section className={cn("relative border-t border-line py-12 md:py-20", className)}>
       <Container>
         {(eyebrow || title || description) && (
-          <div className="mb-16 max-w-2xl md:mb-24">
-            {eyebrow && <SectionLabel index={index}>{eyebrow}</SectionLabel>}
+          <div className="mb-8 max-w-2xl md:mb-12">
+            {eyebrow && <SectionLabel>{eyebrow}</SectionLabel>}
             {title && (
-              <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+              <h2 className="mt-4 font-editorial text-3xl font-bold tracking-tight text-foreground md:text-4xl">
                 {title}
               </h2>
             )}

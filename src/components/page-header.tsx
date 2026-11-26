@@ -4,21 +4,19 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function PageHeader({
   eyebrow,
-  index,
   title,
   description,
 }: {
   eyebrow: string;
-  index?: string;
   title: string;
   description?: string;
 }) {
   return (
-    <section className="pb-12 pt-28 md:pt-36">
+    <section className="pb-10 pt-12 md:pb-14 md:pt-20">
       <Container>
         <Reveal>
-          <SectionLabel index={index}>{eyebrow}</SectionLabel>
-          <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight md:text-5xl">
+          <SectionLabel>{eyebrow}</SectionLabel>
+          <h1 className="mt-4 font-editorial text-4xl font-bold tracking-tight md:text-5xl">
             {title}
           </h1>
           {description && (

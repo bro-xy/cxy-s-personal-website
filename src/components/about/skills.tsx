@@ -15,7 +15,6 @@ export function Skills() {
   return (
     <Section
       eyebrow="专业技能"
-      index="04"
       title="能力地图"
       description="技术打底 + 统筹协调 + 落地执行，多栈能力在不同场景中反复验证。"
     >

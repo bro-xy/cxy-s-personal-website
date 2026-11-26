@@ -1,7 +1,6 @@
 import Link from "next/link";
-import { contact, nav, resumePath, site } from "@/content";
+import { contact, nav, site } from "@/content";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
@@ -11,9 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2.5">
-              <span className="grid h-8 w-8 place-items-center rounded-lg border border-line bg-surface font-mono text-sm text-foreground">
-                陈
-              </span>
+              <span className="site-mark" aria-hidden>CX</span>
               <span className="font-display font-semibold tracking-tight">
                 {site.name}
               </span>
@@ -52,20 +49,13 @@ export function Footer() {
               导航
             </p>
             <ul className="mt-4 space-y-2.5 text-sm text-muted">
-              {nav
-                .filter((n) => !n.href.endsWith(".pdf"))
-                .map((n) => (
-                  <li key={n.label}>
-                    <Link href={n.href} className="hover:text-foreground">
-                      {n.label}
-                    </Link>
-                  </li>
-                ))}
-              <li className="pt-2">
-                <Button href={resumePath} download variant="secondary" size="sm">
-                  下载 PDF 简历
-                </Button>
-              </li>
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-foreground">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

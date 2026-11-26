@@ -108,13 +108,36 @@ export const activities: Activity[] = [
 
 export const otherWorks: OtherWork[] = [
   {
-    title: "家教辅导",
-    description:
-      "课余时间承担中小学计算机与数学科目家教工作，根据学生情况定制学习方案，锻炼了逻辑表达与耐心沟通的能力。",
+    id: "shop",
+    title: "我的 1688 店铺",
+    description: "我有一家自己经营的 1688 店铺，也在摸索怎样做好一门自己的生意。",
   },
   {
+    id: "tutoring",
+    title: "家教辅导",
+    description:
+      "课余教中小学生计算机和数学，根据每个学生的情况调整讲解方式和学习计划。",
+  },
+  {
+    id: "spike",
+    title: "SPIKE 课程",
+  },
+  {
+    id: "procurement",
     title: "采购助理",
     description:
-      "协助采购经理对接物料供应商，完成询价、比价与样品评估，推动供应商筛选并成功达成合作，积累了商务沟通与成本把控的实战经验。",
+      "协助采购经理对接物料供应商，做询价、比价与样品评估，参与供应商筛选和合作对接。",
   },
 ];
+
+function activityDate(activity: Activity) {
+  if (activity.sortDate) return activity.sortDate;
+
+  const [periodStart] = activity.period.split(" - ");
+  const [year, month = "00", day = "00"] = periodStart.split(".");
+  return [year, month, day].join("-");
+}
+
+export const recentActivities = [...activities].sort((first, second) =>
+  activityDate(second).localeCompare(activityDate(first)),
+);

@@ -1,49 +1,77 @@
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Reveal } from "@/components/ui/reveal";
-import { Section } from "@/components/ui/section";
+import { ArrowUpRight, BookOpen, Boxes, Store } from "lucide-react";
+import { otherWorks, recentActivities } from "@/content";
+import { Container } from "@/components/ui/container";
 
-const entries = [
-  { index: "01", title: "关于我", desc: "成长路径 · 荣誉 · 技能", href: "/about" },
+const fieldLinks = [
   {
-    index: "02",
-    title: "项目与作品",
-    desc: "企业项目 · 独立开发 · 运营",
+    title: "项目、测试和运营",
+    description: "阙天的企业项目、独立开发的古诗词小程序，以及我做过的公众号内容。",
     href: "/projects",
+    icon: Boxes,
   },
   {
-    index: "03",
-    title: "兼职活动",
-    desc: "大型活动 · 现场统筹",
-    href: "/activities",
+    title: "我的 1688 店铺",
+    description: otherWorks.find((work) => work.id === "shop")?.description,
+    href: "/activities#shop",
+    icon: Store,
   },
-  { index: "04", title: "联系我", desc: "期待与你的合作机会", href: "/contact" },
+  {
+    title: "家教与 SPIKE 课",
+    description: "辅导中小学生计算机和数学，平时也会上 SPIKE 课。",
+    href: "/activities#tutoring",
+    icon: BookOpen,
+  },
 ];
 
 export function QuickLinks() {
+  const latest = recentActivities[0];
+
   return (
-    <Section eyebrow="快速入口" index="01" title="想先了解哪一面？">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {entries.map((e, i) => (
-          <Reveal key={e.href} delay={i * 0.06}>
-            <Link
-              href={e.href}
-              className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-card"
-            >
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs text-dim">{e.index}</span>
-                  <ArrowUpRight className="h-5 w-5 text-dim transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
-                </div>
-                <h3 className="mt-12 font-display text-xl font-semibold tracking-tight text-foreground">
-                  {e.title}
-                </h3>
-                <p className="mt-1.5 text-sm text-muted">{e.desc}</p>
-              </div>
+    <section id="current-work" className="home-work" aria-labelledby="home-work-title">
+      <Container>
+        <div className="home-work-heading">
+          <h2 id="home-work-title">我在做的事</h2>
+          <Link href="/about" className="site-text-link">
+            更多关于我 <ArrowUpRight aria-hidden size={16} />
+          </Link>
+        </div>
+        <div className="home-field-links">
+          {fieldLinks.map(({ title, description, href, icon: Icon }) => (
+            <Link href={href} key={href} className="home-field-link">
+              <Icon aria-hidden size={23} strokeWidth={1.6} />
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <ArrowUpRight className="field-arrow" aria-hidden size={18} />
             </Link>
-          </Reveal>
-        ))}
-      </div>
-    </Section>
+          ))}
+        </div>
+        {latest && (
+          <article className="home-latest">
+            {latest.photos[0] && (
+              <div className="home-latest-photo">
+                <Image
+                  src={latest.photos[0]}
+                  alt={latest.name + "现场"}
+                  fill
+                  sizes="(min-width: 768px) 48vw, 92vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
+            <div className="home-latest-copy">
+              <p className="editorial-eyebrow">最近的兼职现场</p>
+              <p className="editorial-date">{latest.period} · {latest.role}</p>
+              <h3>{latest.name}</h3>
+              <p>{latest.summary}</p>
+              <Link href="/activities#activity-log" className="site-text-link">
+                查看兼职记录 <ArrowUpRight aria-hidden size={16} />
+              </Link>
+            </div>
+          </article>
+        )}
+      </Container>
+    </section>
   );
 }

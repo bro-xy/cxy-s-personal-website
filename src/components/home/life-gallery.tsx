@@ -12,9 +12,7 @@ export function LifeGallery() {
   return (
     <Section
       eyebrow="生活碎片"
-      index="03"
-      title="工作之外，攒满生活的热乎气"
-      description="爱徒步走线、爱用镜头记录日常，爱往新鲜的人和事里钻。保持对生活的热忱，也是我保持高执行力的小秘诀。"
+      title="徒步、旅行，还有一些日常"
     >
       <Reveal>
         <DepthCarousel

@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Sora, Noto_Sans_SC, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Background from "@/components/background";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
@@ -28,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s · 陈熙雅",
   },
   description:
-    "软件工程应届生陈熙雅的个人作品站：技术有底色、做事有章法、落地有结果。蓝桥杯软件测试全国二等奖，独立上线微信小程序，统筹奔驰 / 上海马拉松等大型活动。",
+    "陈熙雅的个人作品站。软件工程在读，记录企业项目、软件测试、独立开发、内容运营，以及上海的兼职活动和副业。",
   keywords: [
     "陈熙雅",
     "项目管理",
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "陈熙雅 · 项目管理 / 测试 / 运营",
     description:
-      "技术有底色、做事有章法、落地有结果 —— 软件工程应届生的个人作品站。",
+      "我想多试一点，再找到自己的方向。陈熙雅的项目、作品和兼职记录。",
     type: "website",
     locale: "zh_CN",
   },
@@ -50,7 +49,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#f8f5ed",
   width: "device-width",
   initialScale: 1,
 };
@@ -64,7 +63,6 @@ export default function RootLayout({
       className={`${sora.variable} ${notoSansSC.variable} ${geistMono.variable}`}
     >
       <body className="flex min-h-screen flex-col bg-background font-sans text-foreground antialiased">
-        <Background />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

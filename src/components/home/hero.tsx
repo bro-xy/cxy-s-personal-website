@@ -1,66 +1,58 @@
 import Image from "next/image";
-import { ArrowRight, Download } from "lucide-react";
-import { hero, portrait, resumePath, site } from "@/content";
-import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/ui/reveal";
-import { RoleRotator } from "./role-rotator";
+import { ArrowDown, ArrowUpRight, FileText } from "lucide-react";
+import { hero, lifePhotos, site } from "@/content";
+import { Container } from "@/components/ui/container";
+import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100dvh] items-center pb-24 pt-24 md:pb-32">
-      <div className="mx-auto grid w-full max-w-6xl items-center gap-14 px-6 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
-        {/* 左：文案 */}
-        <div>
-          <Reveal>
-            <p className="font-mono text-[11px] uppercase tracking-[0.28em] text-dim">
-              {site.status}
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <h1 className="mt-6 font-display text-7xl font-semibold leading-[0.98] tracking-tight text-foreground md:text-8xl">
-              {site.name}
-            </h1>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <RoleRotator />
-          </Reveal>
-
-          <Reveal delay={0.24}>
-            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted md:text-xl">
-              {hero.subtitle}
-            </p>
-          </Reveal>
-
-          <Reveal delay={0.32}>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Button href="/projects" size="lg">
-                查看项目
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-              <Button href={resumePath} download variant="secondary" size="lg">
-                <Download className="h-4 w-4" />
-                下载简历
-              </Button>
-            </div>
-          </Reveal>
+    <section className="home-hero">
+      <Container className="home-hero-grid">
+        <div className="home-hero-copy">
+          <p className="home-greeting">{hero.greeting}</p>
+          <h1>
+            {hero.headline[0]}
+            <span>{hero.headline[1]}</span>
+          </h1>
+          <p className="home-hero-description">{hero.subtitle}</p>
+          <div className="home-hero-actions">
+            <Link href="/projects" className="site-action site-action-primary">
+              看我的作品 <ArrowUpRight aria-hidden size={17} />
+            </Link>
+            <Link href="/contact#resumes" className="site-action site-action-secondary">
+              <FileText aria-hidden size={16} /> 选择简历
+            </Link>
+          </div>
         </div>
 
-        {/* 右：人像 */}
-        <Reveal delay={0.2} className="flex justify-center lg:justify-end">
-          <div className="relative aspect-[4/5] w-[280px] overflow-hidden rounded-[2rem] border border-line bg-surface shadow-card sm:w-[340px] md:w-[380px]">
+        <figure className="home-photo-stack">
+          <div className="home-photo-main">
             <Image
-              src={portrait}
-              alt={site.name}
+              src={lifePhotos[0]}
+              alt="旅行中站在彩色经幡下的陈熙雅"
               fill
-              priority
-              sizes="(max-width: 1024px) 340px, 380px"
+              preload
+              sizes="(min-width: 1024px) 385px, (min-width: 768px) 44vw, 76vw"
               className="object-cover"
             />
           </div>
-        </Reveal>
-      </div>
+          <div className="home-photo-inset">
+            <Image
+              src={lifePhotos[7]}
+              alt="徒步途中望向远处的山"
+              fill
+              sizes="(min-width: 768px) 170px, 40vw"
+              className="object-cover"
+            />
+          </div>
+          <figcaption>陈熙雅的旅行相册</figcaption>
+        </figure>
+
+        <div className="home-hero-foot">
+          <span>{site.location} · 软件工程在读</span>
+          <a href="#current-work">继续往下看 <ArrowDown aria-hidden size={15} /></a>
+        </div>
+      </Container>
     </section>
   );
 }

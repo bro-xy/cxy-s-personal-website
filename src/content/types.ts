@@ -11,7 +11,6 @@ export interface TextSegment {
 export interface NavItem {
   label: string;
   href: string;
-  external?: boolean;
 }
 
 export interface Contact {
@@ -76,12 +75,14 @@ export interface Activity {
   name: string;
   role: string;
   period: string;
+  sortDate?: string;
   summary: string;
   points: string[];
   photos: string[];
 }
 
 export interface OtherWork {
+  id: string;
   title: string;
-  description: string;
+  description?: string;
 }

@@ -7,9 +7,8 @@ export function ContentOps() {
   return (
     <Section
       eyebrow="内容运营作品集"
-      index="03"
-      title="操盘 5 个公众号的内容力"
-      description="覆盖校园宣传、企业服务、青少年服务、知识分享等多个领域，熟练掌握推文策划、排版设计、内容编审、影音制作全流程。"
+      title="我做过的公众号内容"
+      description="从自己的诗词分享号到校园和企业公众号，每个账号里我做的事都不太一样。"
     >
       <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
         {contentAccounts.map((acc, i) => (

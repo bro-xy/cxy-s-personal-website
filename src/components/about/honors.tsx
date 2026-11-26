@@ -3,13 +3,6 @@ import { Reveal } from "@/components/ui/reveal";
 import { Section } from "@/components/ui/section";
 import { cn } from "@/lib/utils";
 
-const levelStyles: Record<HonorLevel, string> = {
-  国家级: "bg-foreground text-background border-foreground",
-  省级: "bg-foreground/10 text-foreground border-foreground/30",
-  市级: "bg-surface-2 text-foreground/80 border-line",
-  校级: "bg-surface text-muted border-line/70",
-};
-
 const levelBadge: Record<HonorLevel, string> = {
   国家级: "bg-foreground text-background",
   省级: "bg-foreground/10 text-foreground border border-foreground/30",
@@ -21,7 +14,6 @@ export function Honors() {
   return (
     <Section
       eyebrow="荣誉奖项"
-      index="03"
       title="用结果证明实力"
       description="覆盖技术竞赛、学业荣誉、创新创业多个维度，按含金量与岗位相关性排序。"
     >
@@ -36,14 +28,9 @@ export function Honors() {
                   : "border-line bg-surface/60 hover:shadow-card",
               )}
             >
-              {h.level === "国家级" && (
-                <div className="absolute right-4 top-4 font-mono text-[10px] uppercase tracking-widest text-foreground/40">
-                  ★ Featured
-                </div>
-              )}
               <p
                 className={cn(
-                  "pr-12 text-sm leading-relaxed",
+                  "text-sm leading-relaxed",
                   h.level === "国家级"
                     ? "font-medium text-foreground"
                     : "text-foreground/90",

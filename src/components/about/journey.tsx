@@ -11,7 +11,6 @@ export function Journey() {
       {/* 教育背景 + 学生组织 */}
       <Section
         eyebrow="成长路径"
-        index="01"
         title="从计算机到软件工程"
         description="一路在技术、统筹与运营之间穿梭，把每一个身份都做扎实。"
       >
@@ -66,7 +65,6 @@ export function Journey() {
       {/* 实习经历 timeline */}
       <Section
         eyebrow="实习经历"
-        index="02"
         title="周中深耕，多线并行"
         description="在真实项目与一线服务中打磨「盯进度、控节点、对结果负责」的执行力。"
       >

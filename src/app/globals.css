@@ -1,31 +1,25 @@
 @import "tailwindcss";
-
-/* ============================================================
-   Design System · Apple Minimal · Monochrome
-   黑白灰冷调 / 大留白 / 超大标题 / 高级感
-   ============================================================ */
+@import "./personal.css";
 
 @theme {
-  /* ---- Color Tokens (off-black on off-white, no pure #000 / #fff) ---- */
-  --color-background: #fbfbfd;
-  --color-background-soft: #f5f5f7;
-  --color-surface: #ffffff;
-  --color-surface-2: #f5f5f7;
-  --color-foreground: #1d1d1f;
-  --color-muted: #6e6e73;
-  --color-dim: #86868b;
-  --color-line: #d2d2d7;
-
-  /* 单色 accent：所有 primary/accent/glow 统一为近黑，保持全站黑白灰 */
-  --color-primary: #1d1d1f;
-  --color-primary-bright: #424245;
-  --color-accent: #1d1d1f;
-  --color-glow: #1d1d1f;
+  --color-background: #f8f5ed;
+  --color-background-soft: #f0ece0;
+  --color-surface: #fffdf7;
+  --color-surface-2: #efeade;
+  --color-foreground: #24332b;
+  --color-muted: #4e5d53;
+  --color-dim: #58665d;
+  --color-line: #d9d4c6;
+  --color-primary: #203d34;
+  --color-primary-bright: #345448;
+  --color-accent: #a13e29;
+  --color-glow: #24332b;
 
   /* ---- Typography ---- */
   --font-display: var(--font-sora), var(--font-noto-sans-sc), sans-serif;
   --font-sans: var(--font-noto-sans-sc), var(--font-sora), sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-editorial: "Songti SC", "Noto Serif CJK SC", "SimSun", "STSong", serif;
 
   /* ---- Motion (克制的进入与浮动) ---- */
   --animate-fade-up: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -137,7 +131,7 @@
   }
 
   ::selection {
-    background: rgb(29 29 31 / 0.12);
+    background: #f2d3c3;
     color: var(--color-foreground);
   }
 
@@ -149,14 +143,15 @@
     background: var(--color-background);
   }
   ::-webkit-scrollbar-thumb {
-    background: #c7c7cc;
+    background: #bcb8a9;
     border-radius: 8px;
     border: 2px solid var(--color-background);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #aeaeb2;
+    background: #a6a294;
   }
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   *,

@@ -12,9 +12,7 @@ export function FeaturedProject() {
   return (
     <Section
       eyebrow="独立开发作品"
-      index="02"
-      title="从 0 到 1，独立上线"
-      description="一个人走完产品策划、技术开发、测试上线全流程，证明技术底色与执行冲劲。"
+      title="从想法到上线"
     >
       <Reveal>
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start">

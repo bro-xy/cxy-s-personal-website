@@ -1,62 +1,55 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/page-header";
-import { Reveal } from "@/components/ui/reveal";
-import { Section } from "@/components/ui/section";
-import { Card } from "@/components/ui/card";
-import { ActivityCard } from "@/components/activities/activity-card";
-import { activities, otherWorks } from "@/content";
+import { ArrowDown, BookOpen, Boxes, BriefcaseBusiness, Store } from "lucide-react";
+import { ActivityLog } from "@/components/activities/activity-log";
+import { Container } from "@/components/ui/container";
+import { otherWorks, recentActivities } from "@/content";
 
 export const metadata: Metadata = {
-  title: "兼职活动",
-  description:
-    "周中深耕职场，周末解锁多重身份：从奔驰试驾、上海马拉松到 SMG 露营、陀螺挑战赛，在真实大型活动中打磨统筹能力。",
+  title: "兼职与副业",
+  description: "陈熙雅的兼职现场记录，以及 1688 店铺、家教、SPIKE 课程和采购助理经历。",
+};
+
+const workIcons: Record<string, typeof Store> = {
+  shop: Store,
+  tutoring: BookOpen,
+  spike: Boxes,
+  procurement: BriefcaseBusiness,
 };
 
 export default function ActivitiesPage() {
   return (
-    <>
-      <PageHeader
-        eyebrow="兼职活动"
-        title="周中深耕，周末解锁多重身份"
-        description="从大型赛事到品牌活动，从现场执行到全局督导，在不同场景中打磨统筹能力与临场应变力。"
-      />
-
-      <Section
-        eyebrow="活动统筹经历"
-        index="01"
-        title="从奔驰到马拉松，在真实场景中打磨执行力"
-        description="8 场大型活动，覆盖品牌体验、体育赛事、社群运营与文化教育，从现场执行到活动督导，在不同规模、不同受众的实战中积累统筹协调与临场应变能力。"
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          {activities.map((activity, i) => (
-            <Reveal key={activity.slug} delay={(i % 2) * 0.08}>
-              <ActivityCard activity={activity} />
-            </Reveal>
-          ))}
+    <Container className="activities-page">
+      <header className="activity-intro">
+        <div>
+          <p className="editorial-eyebrow">兼职与副业</p>
+          <h1>走进现场，<br />也做自己的事。</h1>
         </div>
-      </Section>
-
-      {/* 其他兼职 */}
-      <Section
-        eyebrow="其他兼职实践"
-        index="02"
-        title="每一个身份都在积累"
-      >
-        <div className="grid gap-4 md:grid-cols-2">
-          {otherWorks.map((work, i) => (
-            <Reveal key={work.title} delay={i * 0.08}>
-              <Card className="h-full p-6">
-                <h3 className="font-display text-lg font-semibold">
-                  {work.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
-                  {work.description}
-                </p>
-              </Card>
-            </Reveal>
-          ))}
+        <div>
+          <p>我常做品牌活动督导、赛事执行和研学指导。这里会持续更新我的兼职现场，也记录我在做的副业。</p>
+          <div className="activity-jump-links">
+            <a className="site-text-link" href="#activity-log">看活动记录 <ArrowDown aria-hidden size={16} /></a>
+            <a className="site-text-link" href="#side-work">看其他副业 <ArrowDown aria-hidden size={16} /></a>
+          </div>
         </div>
-      </Section>
-    </>
+      </header>
+
+      <ActivityLog activities={recentActivities} />
+
+      <section id="side-work" className="side-work" aria-labelledby="side-work-title">
+        <h2 id="side-work-title">现场之外，我还在做这些</h2>
+        <div className="side-work-list">
+          {otherWorks.map((work) => {
+            const Icon = workIcons[work.id] ?? BriefcaseBusiness;
+            return (
+              <article id={work.id} key={work.id} className="side-work-item">
+                <Icon aria-hidden size={24} strokeWidth={1.6} />
+                <h3>{work.title}</h3>
+                {work.description && <p>{work.description}</p>}
+              </article>
+            );
+          })}
+        </div>
+      </section>
+    </Container>
   );
 }

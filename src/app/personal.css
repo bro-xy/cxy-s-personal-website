@@ -124,24 +124,6 @@
 
 .home-hero-copy { padding-block: .9rem 2.25rem; }
 
-.home-greeting {
-  display: flex;
-  align-items: center;
-  gap: .6rem;
-  margin-bottom: 1.3rem;
-  color: var(--color-accent);
-  font-size: clamp(.9rem, 1.5vw, 1.05rem);
-  font-weight: 650;
-}
-
-.home-greeting::before {
-  width: .58rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: currentColor;
-  content: "";
-}
-
 .home-hero h1, .activity-intro h1 {
   font-family: var(--font-editorial);
   font-size: clamp(2.35rem, 4.65vw, 4.5rem);
@@ -152,8 +134,8 @@
 }
 
 .home-hero h1 span {
-  display: block;
   color: var(--color-accent);
+  white-space: nowrap;
 }
 
 .home-hero-description {

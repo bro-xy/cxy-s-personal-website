@@ -23,7 +23,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "陈熙雅 · 全能派个人作品站",
+    default: "陈熙雅 · 个人作品站",
     template: "%s · 陈熙雅",
   },
   description:
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "陈熙雅" }],
   openGraph: {
-    title: "陈熙雅 · 全能派个人作品站",
+    title: "陈熙雅 · 个人作品站",
     description:
-      "从写代码到做生意。看看陈熙雅做过的项目、作品和兼职活动。",
+      "陈熙雅的项目、作品和兼职活动记录。",
     type: "website",
     locale: "zh_CN",
   },

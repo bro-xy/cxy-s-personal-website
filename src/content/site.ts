@@ -25,10 +25,9 @@ export const contact: Contact = {
 };
 
 export const hero = {
-  greeting: "嗨，我是陈熙雅。",
-  headline: ["我是个全能派。", "从写代码到做生意。"],
+  greeting: "嗨，我是",
   subtitle:
-    "我在上海读软件工程，做过企业项目和功能测试，也独立上线过微信小程序。周末常在活动现场做督导，平时还做家教、经营自己的 1688 店铺。",
+    "我在上海读软件工程，周中跟项目、做测试，周末常在活动现场。平时也做家教，打理自己的 1688 店铺。",
 };
 
 export const lifePhotos: string[] = [

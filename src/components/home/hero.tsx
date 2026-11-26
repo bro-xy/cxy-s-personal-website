@@ -9,10 +9,8 @@ export function Hero() {
     <section className="home-hero">
       <Container className="home-hero-grid">
         <div className="home-hero-copy">
-          <p className="home-greeting">{hero.greeting}</p>
           <h1>
-            {hero.headline[0]}
-            <span>{hero.headline[1]}</span>
+            {hero.greeting}<span>{site.name}。</span>
           </h1>
           <p className="home-hero-description">{hero.subtitle}</p>
           <div className="home-hero-actions">

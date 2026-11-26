@@ -23,11 +23,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "陈熙雅 · 项目管理 / 测试 / 运营",
+    default: "陈熙雅 · 全能派个人作品站",
     template: "%s · 陈熙雅",
   },
   description:
-    "陈熙雅的个人作品站。软件工程在读，记录企业项目、软件测试、独立开发、内容运营，以及上海的兼职活动和副业。",
+    "陈熙雅的个人作品站。从软件工程、项目管理和测试，到独立开发、内容运营、兼职活动和 1688 店铺。",
   keywords: [
     "陈熙雅",
     "项目管理",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "陈熙雅" }],
   openGraph: {
-    title: "陈熙雅 · 项目管理 / 测试 / 运营",
+    title: "陈熙雅 · 全能派个人作品站",
     description:
-      "我想多试一点，再找到自己的方向。陈熙雅的项目、作品和兼职记录。",
+      "从写代码到做生意。看看陈熙雅做过的项目、作品和兼职活动。",
     type: "website",
     locale: "zh_CN",
   },

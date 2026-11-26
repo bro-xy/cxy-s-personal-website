@@ -4,7 +4,7 @@ export const site = {
   name: "陈熙雅",
   englishName: "Chen Xiya",
   title: "项目管理 / 测试 / 运营",
-  slogan: "多做几件事，认识更多可能。",
+  slogan: "项目、测试、内容运营、活动和我的 1688 店铺。",
   status: "周中实习 · 周末多场景实践中",
   location: "上海",
 } as const;
@@ -26,9 +26,9 @@ export const contact: Contact = {
 
 export const hero = {
   greeting: "嗨，我是陈熙雅。",
-  headline: ["我想多试一点，", "再找到自己的方向。"],
+  headline: ["我是个全能派。", "从写代码到做生意。"],
   subtitle:
-    "我在上海读软件工程，周中做项目和测试，周末常去活动现场。我也做家教、开了自己的 1688 店铺，还会上 SPIKE 课。这里记录我做过的事，也欢迎你来聊聊新的可能。",
+    "我在上海读软件工程，做过企业项目和功能测试，也独立上线过微信小程序。周末常在活动现场做督导，平时还做家教、经营自己的 1688 店铺。",
 };
 
 export const lifePhotos: string[] = [
